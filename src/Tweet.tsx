@@ -1,4 +1,4 @@
-function Tweet({ tweet }) {
+function Tweet({ tweet }: any) {
   return (
     <div className="tweet">
       <Avatar tweet={tweet} />
@@ -16,15 +16,15 @@ function Tweet({ tweet }) {
   );
 }
 
-function Avatar({ tweet }) {
+function Avatar({ tweet }: any) {
   return <img src={tweet.pfpImageLink} className="avatar" alt="avatar" />;
 }
 
-function Message({ tweet }) {
+function Message({ tweet }: any) {
   return <div className="message">{tweet.tweet}</div>;
 }
 
-function Author({ tweet }) {
+function Author({ tweet }: any) {
   return (
     <span className="author">
       <span className="name">{tweet.name}</span>

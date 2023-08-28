@@ -2,8 +2,6 @@ import { useState } from "react";
 import Tweet from "./Tweet";
 import EditIcon from "@mui/icons-material/Edit";
 import AssistantIcon from "@mui/icons-material/Assistant";
-import SvgIcon from "@mui/material/SvgIcon";
-import tweetLogo from "./assets/twitter.svg";
 import { data, SampleTweet } from "./data";
 
 import "./App.css";
@@ -44,7 +42,7 @@ function AppBarComponent() {
   );
 }
 
-function Question({ tweet }) {
+function Question({ tweet }: any) {
   return (
     <div>
       <Typography variant="h6" padding={"10px"}>
@@ -54,7 +52,7 @@ function Question({ tweet }) {
   );
 }
 
-function TweetCard({ tweet }) {
+function TweetCard({ tweet }: any) {
   return (
     <Card>
       <Tweet tweet={tweet} />
@@ -69,13 +67,13 @@ function AnswerOptions({
   setTweet,
   setLoseGame,
   setloseGameByChoosingAIForHumanAnswer,
-}) {
+}: any) {
   const answerHandler = (givenAnswer: boolean) => {
     const correctAnswer = tweet.isReal === givenAnswer;
 
     if (correctAnswer) {
       setCurrentStreak(currentStreak + 1);
-      setTweet(getRandomTweet(data));
+      setTweet(getRandomTweet(data, tweet));
     } else {
       if (givenAnswer === true) {
         setLoseGame(true);
@@ -125,7 +123,7 @@ function AnswerOptions({
   );
 }
 
-function CurrentStreak({ currentStreak }) {
+function CurrentStreak({ currentStreak }: any) {
   const label = "Correct guess streak: " + currentStreak;
 
   return (
@@ -142,7 +140,7 @@ function Frame({
   tweet,
   setTweet,
   setloseGameByChoosingAIForHumanAnswer,
-}) {
+}: any) {
   return (
     <>
       <Question tweet={tweet}></Question>
@@ -200,11 +198,20 @@ function Footer() {
   );
 }
 
-const getRandomTweet = (data: SampleTweet[]): SampleTweet => {
-  return data[Math.floor(Math.random() * data.length)];
+const getRandomTweet = (
+  data: SampleTweet[],
+  oldTweet: SampleTweet
+): SampleTweet => {
+  let newTweet = data[Math.floor(Math.random() * data.length)];
+
+  while (newTweet.tweet === oldTweet.tweet) {
+    newTweet = data[Math.floor(Math.random() * data.length)];
+  }
+
+  return newTweet;
 };
 
-function LoseGameOtherWay({ tweet }) {
+function LoseGameOtherWay({ tweet }: any) {
   return (
     <Typography variant="h6">
       Hey! That tweet was actually posted by {tweet.name}. Funny you think
@@ -226,7 +233,9 @@ function App() {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [currentStreak, setCurrentStreak] = useState(0);
   const [loseGame, setLoseGame] = useState(false);
-  const [tweet, setTweet] = useState<SampleTweet>(getRandomTweet(data));
+  const [tweet, setTweet] = useState<SampleTweet>(
+    getRandomTweet(data, data[0])
+  );
   const [
     loseGameByChoosingAIForHumanAnswer,
     setloseGameByChoosingAIForHumanAnswer,
@@ -264,6 +273,10 @@ function App() {
           tool a try so it helps you craft better tweets in your style? &nbsp;
           <Link href="./" target="_blank" rel="noopener noreferrer">
             Sign for the waitlist here
+          </Link>
+          <br></br>
+          <Link href="./" rel="noopener noreferrer">
+            Wanna play again tho?
           </Link>
         </Typography>
       ) : (
