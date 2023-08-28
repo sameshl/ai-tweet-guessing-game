@@ -53,7 +53,7 @@ export const data: Array<SampleTweet> = [
 You're doing great, seriously. 
 
 Don't underestimate yourself, lol. `,
-    isReal: true,
+    isReal: false,
     handle: "FarzaTV",
     name: "Farza",
     pfpImageLink:
@@ -62,7 +62,7 @@ Don't underestimate yourself, lol. `,
   {
     tweet: `Work on your ideas on Nights and Weekends, now,
     So that you can work on them on Mornings & Weekdays, later. `,
-    isReal: true,
+    isReal: false,
     handle: "FarzaTV",
     name: "Farza",
     pfpImageLink:
