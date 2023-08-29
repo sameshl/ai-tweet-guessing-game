@@ -18,6 +18,8 @@ import {
   Link,
 } from "@mui/material";
 
+const WAITLIST_LINK = "https://ltzilf9i59k.typeform.com/to/lgdI1XV8";
+
 function AppBarComponent() {
   return (
     <AppBar>
@@ -190,7 +192,7 @@ function Footer() {
       </Typography>
       <Typography variant="body2">
         If interested in the beta,{" "}
-        <Link href="./" target="_blank" rel="noopener noreferrer">
+        <Link href={WAITLIST_LINK} target="_blank" rel="noopener noreferrer">
           signup for the waitlist here
         </Link>
       </Typography>
@@ -222,7 +224,7 @@ function LoseGameOtherWay({ tweet }: any) {
       </Link>
       <br></br>
       If interested in the beta, consider &nbsp;
-      <Link href="./" target="_blank" rel="noopener noreferrer">
+      <Link href="{WAITLIST_LINK} " target="_blank" rel="noopener noreferrer">
         signing for the waitlist here
       </Link>
     </Typography>
@@ -271,7 +273,11 @@ function App() {
         <Typography variant="h6">
           Ahh! That tweet was actually developed by GPT hehe. Wanna give our
           tool a try so it helps you craft better tweets in your style? &nbsp;
-          <Link href="./" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="{WAITLIST_LINK} "
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Sign for the waitlist here
           </Link>
           <br></br>
