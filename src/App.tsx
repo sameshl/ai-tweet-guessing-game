@@ -190,7 +190,7 @@ function Footer() {
           Amit
         </Link>
       </Typography>
-      <Typography variant="body2">
+      <Typography variant="h5">
         If interested in the beta,{" "}
         <Link href={WAITLIST_LINK} target="_blank" rel="noopener noreferrer">
           signup for the waitlist here
@@ -263,7 +263,15 @@ function App() {
         ) : (
           !loseGame &&
           !loseGameByChoosingAIForHumanAnswer && (
-            <Button variant="contained" onClick={() => setIsGameStarted(true)}>
+            <Button
+              variant="contained"
+              size="large"
+              sx={{
+                height: "70px",
+                width: "500px",
+              }}
+              onClick={() => setIsGameStarted(true)}
+            >
               Start Game
             </Button>
           )
