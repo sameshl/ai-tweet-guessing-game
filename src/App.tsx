@@ -280,7 +280,8 @@ function App() {
       {loseGame ? (
         <Typography variant="h6">
           Ahh! That tweet was actually developed by GPT hehe. Wanna give our
-          tool a try so it helps you craft better tweets in your style? &nbsp;
+          tool a try so it helps you craft better tweets optmisied for the
+          algorithm & engagement without losing your authentic style? &nbsp;
           <Link
             href="{WAITLIST_LINK} "
             target="_blank"
